@@ -69,6 +69,8 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 map <leader>T :CommandT<cr>
+map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
+map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
 
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
