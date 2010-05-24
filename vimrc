@@ -91,4 +91,4 @@ map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
-
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
