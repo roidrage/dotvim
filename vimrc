@@ -68,6 +68,7 @@ map <leader>tm :tabmove
 map <leader>T :CommandT<cr>
 map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
 map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
+map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>

@@ -10,4 +10,6 @@ set lines=70 columns=150          " Window dimensions.
 
 set guioptions-=r                 " Don't show right scrollbar
 
-
+set fuoptions=maxvert,maxhorz
+map <leader>f :set fullscreen<CR>
+map <leader>F :set nofullscreen<CR>
