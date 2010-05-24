@@ -3,3 +3,7 @@ This is the contents of my .vim directory, initial setup courtesy of the [Smash 
 Running `rake link` will symlink gvimrc, vimrc and the project directory into the home directory.
 
 Running `rake build` will build the Command-T Ruby extension.
+
+TODO:
+
+* Replace bundles with git submodules.
