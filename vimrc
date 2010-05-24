@@ -94,3 +94,5 @@ map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+let g:rubycomplete_rails = 1
