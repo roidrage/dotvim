@@ -13,6 +13,8 @@ call pathogen#helptags()
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
+set ofu=syntaxcomplete#Complete
+set completeopt=longest,menuone
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
