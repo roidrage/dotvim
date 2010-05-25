@@ -6,30 +6,28 @@ A plugin for the Vim text editor. PeepOpen provides fuzzy search of filenames an
 Installation
 ------------
 
-Get the FuzzyWindow.app and open it at least once to approve the Mac OS X security dialog.
+Get the PeepOpen.app and open it at least once to approve the Mac OS X security dialog.
 
 Standard:
 
-Copy all files to your ~/.vim directory, specifically the contents of the `plugin` directory.
+Copy `peepopen.vim` to your `~/.vim/plugin` directory.
 
-Pathogen:
+With Tim Pope's [Pathogen](http://github.com/tpope/vim-pathogen):
 
-Copy the entire `vim-peepopen` plugin to your `~/.vim/bundle` directory.
-
-Get Tim Pope's excellent pathogen plugin at http://github.com/tpope/vim-pathogen.
+Copy the entire `vim-peepopen` plugin directory to your `~/.vim/bundle` directory.
 
 Usage
 -----
 
 `<Leader>p` opens the current project directory with the PeepOpen application.
 
-Use vim-rooter for automatic assignment of the current working directory for projects stored in Git.
+Use the [vim-rooter](http://github.com/airblade/vim-rooter) plugin for automatic assignment of the current working directory for projects stored in Git.
 
 (Leader is mapped to '\' by default)
 
 Credits
 -------
 
-- Initial Vim Plugin by Andrew Stewart http://www.airbladesoftware.com/
-
+- Initial Vim Plugin by [Andrew Stewart](http://www.airbladesoftware.com/).
+- Some plugin boilerplate from [Rein Henrichs](http://reinh.com/).
 
