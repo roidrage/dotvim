@@ -16,3 +16,8 @@ map <leader>F :set nofullscreen<CR>
 
 let g:rubytest_cmd_feature = "cucumber --no-color %p"
 let g:rubytest_cmd_story = "cucumber --no-color %p -n '%c'"
+
+if has("gui_macvim")
+  macmenu &File.New\ Tab key=<nop>
+  map <D-t> <Plug>PeepOpen
+endif
