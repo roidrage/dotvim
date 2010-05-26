@@ -29,4 +29,8 @@ def missing item
 end
 
 have_header('ruby.h') or missing('ruby.h')
-create_makefile('ext')
+
+$CFLAGS << " -std=c99 "
+with_cflags($CFLAGS) do
+  create_makefile('ext')
+end
