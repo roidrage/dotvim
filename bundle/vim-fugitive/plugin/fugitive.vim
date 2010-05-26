@@ -144,7 +144,7 @@ augroup fugitive
   autocmd BufNewFile,BufReadPost * call s:Detect(expand('<amatch>:p'))
   autocmd FileType           netrw call s:Detect(expand('<amatch>:p'))
   autocmd VimEnter * if expand('<amatch>')==''|call s:Detect(getcwd())|endif
-  autocmd BufWinLeave * execute getbufvar(+expand('<abuf>'), 'fugitive_restore')
+  autocmd BufWinLeave * execute getwinvar(+winnr(), 'fugitive_restore')
 augroup END
 
 " }}}1
@@ -996,12 +996,27 @@ endfunction
 " }}}1
 " Gdiff {{{1
 
-call s:command("-bar -nargs=? -complete=customlist,s:EditComplete Gdiff :execute s:Diff(<f-args>)")
+call s:command("-bang -bar -nargs=? -complete=customlist,s:EditComplete Gdiff :execute s:Diff(<bang>0,<f-args>)")
 
 augroup fugitive_diff
-  autocmd BufWinLeave * if winnr('$') == 2 && &diff && getbufvar(+expand('<abuf>'), 'git_dir') !=# '' | diffoff! | endif
-  autocmd BufWinEnter * if winnr('$') == 1 && &diff && getbufvar(+expand('<abuf>'), 'git_dir') !=# '' | diffoff | endif
+  autocmd!
+  autocmd BufWinLeave * if s:diff_window_count() == 2 && &diff && getbufvar(+expand('<abuf>'), 'git_dir') !=# '' | windo call s:diff_off() | endif
+  autocmd BufWinEnter * if s:diff_window_count() == 1 && &diff && getbufvar(+expand('<abuf>'), 'git_dir') !=# '' | call s:diff_off() | endif
 augroup END
+
+function! s:diff_window_count()
+  let c = 0
+  for nr in range(1,winnr('$'))
+    let c += getwinvar(nr,'&diff')
+  endfor
+  return c
+endfunction
+
+function! s:diff_off()
+  if &l:diff
+    diffoff
+  endif
+endfunction
 
 function! s:buffer_compare_age(commit) dict abort
   let scores = {':0': 1, ':1': 2, ':2': 3, ':': 4, ':3': 5}
@@ -1025,18 +1040,19 @@ endfunction
 
 call s:add_methods('buffer',['compare_age'])
 
-function! s:Diff(...) abort
+function! s:Diff(bang,...) abort
+  let split = a:bang ? 'split' : 'vsplit'
   if exists(':DiffGitCached')
     return 'DiffGitCached'
   elseif (!a:0 || a:1 == ':') && s:buffer().commit() =~# '^[0-1]\=$' && s:repo().git_chomp_in_tree('ls-files', '--unmerged', '--', s:buffer().path()) !=# ''
-      leftabove vsplit `=fugitive#buffer().repo().translate(s:buffer().expand(':2'))`
-      diffthis
-      wincmd p
-      rightbelow vsplit `=fugitive#buffer().repo().translate(s:buffer().expand(':3'))`
-      diffthis
-      wincmd p
-      diffthis
-      return ''
+    execute 'leftabove '.split.' `=fugitive#buffer().repo().translate(s:buffer().expand('':2''))`'
+    diffthis
+    wincmd p
+    execute 'rightbelow '.split.' `=fugitive#buffer().repo().translate(s:buffer().expand('':3''))`'
+    diffthis
+    wincmd p
+    diffthis
+    return ''
   elseif a:0
     if a:1 ==# ''
       return ''
@@ -1063,9 +1079,9 @@ function! s:Diff(...) abort
     let spec = s:repo().translate(file)
     let commit = matchstr(spec,'\C[^:/]//\zs\x\+')
     if s:buffer().compare_age(commit) < 0
-      rightbelow vsplit `=spec`
+      execute 'rightbelow '.split.' `=spec`'
     else
-      leftabove vsplit `=spec`
+      execute 'leftabove '.split.' `=spec`'
     endif
     diffthis
     wincmd p
@@ -1189,12 +1205,12 @@ function! s:Blame(bang,line1,line2,count,args) abort
           call s:throw(join(readfile(error),"\n"))
         endif
         let bufnr = bufnr('')
-        let restore = 'call setbufvar('.bufnr.',"&scrollbind",0)'
+        let restore = 'call setwinvar(bufwinnr('.bufnr.'),"&scrollbind",0)'
         if &l:wrap
-          let restore .= '|call setbufvar('.bufnr.',"&wrap",1)'
+          let restore .= '|call setwinvar(bufwinnr('.bufnr.'),"&wrap",1)'
         endif
         if &l:foldenable
-          let restore .= '|call setbufvar('.bufnr.',"&foldenable",1)'
+          let restore .= '|call setwinvar(bufwinnr('.bufnr.'),"&foldenable",1)'
         endif
         let winnr = winnr()
         windo set noscrollbind
@@ -1206,7 +1222,7 @@ function! s:Blame(bang,line1,line2,count,args) abort
         let b:git_dir = git_dir
         let b:fugitive_type = 'blame'
         let b:fugitive_blamed_bufnr = bufnr
-        let b:fugitive_restore = restore
+        let w:fugitive_restore = restore
         let b:fugitive_blame_arguments = join(a:args,' ')
         call s:Detect(expand('%:p'))
         execute top
