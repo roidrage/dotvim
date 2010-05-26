@@ -11,8 +11,7 @@ set lines=70 columns=150          " Window dimensions.
 set guioptions-=r                 " Don't show right scrollbar
 
 set fuoptions=maxvert,maxhorz
-map <leader>f :set fullscreen<CR>
-map <leader>F :set nofullscreen<CR>
+map <leader>f :set invfullscreen<CR>
 
 let g:rubytest_cmd_feature = "cucumber --no-color %p"
 let g:rubytest_cmd_story = "cucumber --no-color %p -n '%c'"
