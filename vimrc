@@ -3,6 +3,8 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
+filetype plugin indent on         " Turn on file type detection.
+
 map <Leader>m <Plug>MakeGreen
 
 let g:LustyJugglerSuppressRubyWarning = 1
@@ -12,7 +14,6 @@ silent! call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
 set ofu=syntaxcomplete#Complete
 set completeopt=longest,menuone
 
