@@ -39,6 +39,10 @@ set hlsearch                      " Highlight matches.
 
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
+set linebreak
+set formatoptions=tq
+set wrapmargin=4
+set textwidth=120
 
 set title                         " Set the terminal's title
 
@@ -55,10 +59,11 @@ set expandtab                    " Use spaces instead of tabs
 set smarttab
 set laststatus=2                  " Show the status line all the time
 set autoindent
+set smartindent
 
 set shell=/bin/bash               " Some commands seem to have problems with zsh"
 
-set wildignore+=vendor,log,tmp
+set wildignore+=vendor,log,tmp,*.swp
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 " Or use vividchalk
