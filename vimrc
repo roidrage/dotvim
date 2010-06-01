@@ -3,7 +3,6 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
-filetype plugin indent on         " Turn on file type detection.
 
 map <Leader>m <Plug>MakeGreen
 
@@ -13,6 +12,7 @@ silent! call pathogen#runtime_append_all_bundles()
 
 call pathogen#helptags()
 
+filetype plugin indent on         " Turn on file type detection.
 syntax enable                     " Turn on syntax highlighting.
 set ofu=syntaxcomplete#Complete
 set completeopt=longest,menuone
@@ -56,6 +56,8 @@ set expandtab                    " Use spaces instead of tabs
 set smarttab
 set laststatus=2                  " Show the status line all the time
 set autoindent
+
+set shell=/bin/bash               " Some commands seem to have problems with zsh"
 
 set wildignore+=vendor,log,tmp
 " Useful status information at bottom of screen
