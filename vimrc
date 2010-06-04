@@ -4,7 +4,7 @@ set nocompatible                  " Must come first because it changes other opt
 
 
 map <Leader>m <Plug>MakeGreen
-
+let g:rubytest_in_quickfix = 1
 let g:LustyJugglerSuppressRubyWarning = 1
 
 silent! call pathogen#runtime_append_all_bundles()
