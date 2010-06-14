@@ -67,13 +67,23 @@ function s:RunTest()
   if s:test_scope == 2 || case != 'false'
     let case = substitute(case, "'\\|\"", '.', 'g')
     let cmd = substitute(cmd, '%c', case, '')
+    let cmd = substitute(cmd, '%p', s:EscapeBackSlash(@%), '')
+
     if @% =~ '^test'
-      let cmd = substitute(cmd, '%p', s:EscapeBackSlash(strpart(@%,5)), '')
-      exe "!echo '" . cmd . "' && cd test && " . cmd
+      let cmd = substitute(cmd, '^ruby ', 'ruby -Itest -rtest_helper ', '')
+    endif
+
+    if g:rubytest_in_quickfix > 0
+      let s:oldefm = &efm
+      let &efm = s:efm . s:efm_backtrace . ',' . s:efm_ruby . ',' . s:oldefm . ',%-G%.%#'
+
+      cex system(cmd)
+      cw
+
+      let &efm = s:oldefm
     else
-      let cmd = substitute(cmd, '%p', s:EscapeBackSlash(@%), '')
       exe "!echo '" . cmd . "' && " . cmd
-    end
+    endif
   else
     echo 'No test case found.'
   endif
@@ -177,7 +187,7 @@ endfunction
 
 let s:test_case_patterns = {}
 let s:test_case_patterns['test'] = {'^\s*def test':function('s:GetTestCaseName1'), '^\s*test \s*"':function('s:GetTestCaseName2'), "^\\s*test \\s*'":function('s:GetTestCaseName4'), '^\s*should \s*"':function('s:GetTestCaseName3'), "^\\s*should \\s*'":function('s:GetTestCaseName5')}
-let s:test_case_patterns['spec'] = {'^\s*\(it\|example\) \s*':function('s:GetSpecLine')}
+let s:test_case_patterns['spec'] = {'^\s*\(it\|example\|describe\|context\) \s*':function('s:GetSpecLine')}
 let s:test_case_patterns['feature'] = {'^\s*Scenario:':function('s:GetStoryLine')}
 
 let s:save_cpo = &cpo
@@ -270,10 +280,13 @@ let s:efm=s:efm
       \.'%f:%l:\ %#%m,'
 
 let s:efm_backtrace='%D(in\ %f),'
-      \.'%\\s%#from\ %f:%l:%m,'
-      \.'%\\s#{RAILS_ROOT}/%f:%l:\ %#%m,'
-      \.'%\\s%#[%f:%l:\ %#%m,'
-      \.'%\\s%#%f:%l:\ %#%m'
+    \.'%\\s%#from\ %f:%l:%m,'
+    \.'%\\s%#from\ %f:%l:,'
+    \.'%\\s#{RAILS_ROOT}/%f:%l:\ %#%m,'
+    \.'%\\s%#[%f:%l:\ %#%m,'
+    \.'%\\s%#%f:%l:\ %#%m,'
+    \.'%\\s%#%f:%l:,'
+    \.'%m\ [%f:%l]:'
 
 let s:efm_ruby='\%-E-e:%.%#,\%+E%f:%l:\ parse\ error,%W%f:%l:\ warning:\ %m,%E%f:%l:in\ %*[^:]:\ %m,%E%f:%l:\ %m,%-C%\tfrom\ %f:%l:in\ %.%#,%-Z%\tfrom\ %f:%l,%-Z%p^'
 
