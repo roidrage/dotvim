@@ -1,8 +1,6 @@
-:Ack	ack.txt	/*:Ack*
-:AckAdd	ack.txt	/*:AckAdd*
-:AckFromSearch	ack.txt	/*:AckFromSearch*
-:LAck	ack.txt	/*:LAck*
-:LAckAdd	ack.txt	/*:LAckAdd*
-ack	ack.txt	/*ack*
-ack-author	ack.txt	/*ack-author*
-ack.txt	ack.txt	/*ack.txt*
+ZoomWin.txt	ZoomWin.txt	/*ZoomWin.txt*
+zoomwin	ZoomWin.txt	/*zoomwin*
+zoomwin-copyright	ZoomWin.txt	/*zoomwin-copyright*
+zoomwin-history	ZoomWin.txt	/*zoomwin-history*
+zoomwin-setup	ZoomWin.txt	/*zoomwin-setup*
+zoomwin-usage	ZoomWin.txt	/*zoomwin-usage*
