@@ -7,3 +7,6 @@
 [submodule "bundle/raimondi-delimitmate"]
 	path = bundle/raimondi-delimitmate
 	url = git://github.com/Raimondi/delimitMate.git
+[submodule "bundle/oscarh-vimerl"]
+	path = bundle/oscarh-vimerl
+	url = git://github.com/oscarh/vimerl.git
