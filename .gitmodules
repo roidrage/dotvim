@@ -10,3 +10,6 @@
 [submodule "bundle/oscarh-vimerl"]
 	path = bundle/oscarh-vimerl
 	url = git://github.com/oscarh/vimerl.git
+[submodule "bundle/tpope-vim-unimpaired"]
+	path = bundle/tpope-vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
