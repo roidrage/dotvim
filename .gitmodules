@@ -16,3 +16,9 @@
 [submodule "bundle/tpope-vim-rake"]
 	path = bundle/tpope-vim-rake
 	url = git://github.com/tpope/vim-rake.git
+[submodule "bundle/bufexplorer"]
+	path = bundle/bufexplorer
+	url = git://github.com/markabe/bufexplorer.git
+[submodule "bundle/msanders-cocoa"]
+	path = bundle/msanders-cocoa
+	url = http://github.com/msanders/cocoa.vim.git
