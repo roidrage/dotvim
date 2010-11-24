@@ -22,3 +22,9 @@
 [submodule "bundle/msanders-cocoa"]
 	path = bundle/msanders-cocoa
 	url = http://github.com/msanders/cocoa.vim.git
+[submodule "bundle/davidoc-taskpaper-vim"]
+	path = bundle/davidoc-taskpaper-vim
+	url = http://github.com/davidoc/taskpaper.vim.git
+[submodule "bundle/astashov-vim-ruby-debugger"]
+	path = bundle/astashov-vim-ruby-debugger
+	url = git://github.com/astashov/vim-ruby-debugger.git
