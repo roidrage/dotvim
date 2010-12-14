@@ -28,3 +28,6 @@
 [submodule "bundle/astashov-vim-ruby-debugger"]
 	path = bundle/astashov-vim-ruby-debugger
 	url = git://github.com/astashov/vim-ruby-debugger.git
+[submodule "bundle/fholgado-minibufexpl"]
+	path = bundle/fholgado-minibufexpl
+	url = git://github.com/fholgado/minibufexpl.vim.git
