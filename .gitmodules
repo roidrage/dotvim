@@ -31,3 +31,6 @@
 [submodule "bundle/fholgado-minibufexpl"]
 	path = bundle/fholgado-minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://git.wincent.com/command-t.git
