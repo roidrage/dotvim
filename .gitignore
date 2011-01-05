@@ -1,4 +1,4 @@
 tags
 *.swp
 .netrwhist
-
+bundle/vim-ruby-debugger/tmp
