@@ -5,8 +5,8 @@ set nocompatible                  " Must come first because it changes other opt
 
 map <Leader>m <Plug>MakeGreen
 let g:rubytest_in_quickfix = 1
-let g:LustyJugglerSuppressRubyWarning = 1
 let g:erlangHighlightBif = 1
+let delimitMate_balance_matchpairs = 1
 
 silent! call pathogen#runtime_append_all_bundles()
 
@@ -32,7 +32,6 @@ set wildmode=list:longest         " Complete files like a shell.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
-set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 set relativenumber
 
