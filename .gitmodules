@@ -43,3 +43,6 @@
 [submodule "bundle/vim-textobj-rubyblock"]
 	path = bundle/vim-textobj-rubyblock
 	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "bundle/scrooloose-syntastic"]
+	path = bundle/scrooloose-syntastic
+	url = git://github.com/scrooloose/syntastic.git
