@@ -67,8 +67,10 @@ set shell=/bin/bash               " Some commands seem to have problems with zsh
 set wildignore+=vendor,log,tmp,*.swp
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}\ %{SyntasticStatuslineFlag()}%=%-16(\ %l,%c-%v\ %)%P
-" Or use vividchalk
+
+" Color mappings.
 colorscheme github
+highlight SpellBad term=reverse ctermfg=White ctermbg=Red gui=undercurl guisp=Red
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
