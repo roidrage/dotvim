@@ -1,6 +1,3 @@
-" Copy or symlink to ~/.vimrc or ~/_vimrc.
-
-set nocompatible                  " Must come first because it changes other options.
 
 
 map <Leader>m <Plug>MakeGreen
@@ -110,5 +107,6 @@ imap <C-l> <space>=><space>
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+au FileType markdown,textile setlocal spell spelllang=en_us
 
 let g:rubycomplete_rails = 1
