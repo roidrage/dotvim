@@ -41,6 +41,7 @@ set linebreak
 set formatoptions=tq
 set wrapmargin=4
 set textwidth=120
+set cursorline
 
 set title                         " Set the terminal's title
 
@@ -111,7 +112,7 @@ imap <C-l> <space>=><space>
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 au FileType markdown,textile setlocal spell spelllang=en_us
 
-au InsertEnter * hi StatusLine ctermbg=16 ctermfg=1
-au InsertLeave * hi StatusLine ctermbg=16 ctermfg=8
+au InsertEnter * hi StatusLine ctermbg=white ctermfg=darkred
+au InsertLeave * hi StatusLine ctermbg=white ctermfg=black
 
 let g:rubycomplete_rails = 1
