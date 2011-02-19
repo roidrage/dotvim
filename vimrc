@@ -66,6 +66,8 @@ set wildignore+=vendor,log,tmp,*.swp
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}\ %{SyntasticStatuslineFlag()}%=%-16(\ %l,%c-%v\ %)%P
 
+set pastetoggle=<F2>
+
 " Color mappings.
 colorscheme github
 highlight SpellBad term=reverse ctermfg=White ctermbg=Red gui=undercurl guisp=Red
@@ -90,10 +92,11 @@ map <leader>b :FufBuffer<cr>
 " Get rid of awkward Ex-mode
 map Q <Esc>
 
+" Ruby's hashrocket
 imap <C-l> <space>=><space>
 
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
+" User return key to make highlighted search results disappear
+nnoremap <CR> :nohlsearch<CR>/<BS>
 
 " Controversial...swap colon and semicolon for easier commands
 "nnoremap ; :
@@ -116,3 +119,19 @@ au InsertEnter * hi StatusLine ctermbg=white ctermfg=darkred
 au InsertLeave * hi StatusLine ctermbg=white ctermfg=black
 
 let g:rubycomplete_rails = 1
+
+function! GithubLink() range
+  let l:giturl = system('git config remote.origin.url')
+  let l:prefix = substitute(system('git rev-parse --show-prefix'), "\n", '', '')
+  let l:repo = get(split(matchstr(l:giturl, '\w\+\/[_-a-zA-Z0-9]\+\.git'), '\.'), 0)
+  let l:url = 'https://github.com/' . l:repo
+  let l:branch = get(split(substitute(system('git symbolic-ref HEAD'), "\n", '', '') , '/'), -1)
+  let l:filename = l:prefix . @%
+
+  let l:full = join([l:url, 'blob', l:branch, l:filename], '/')
+
+  let @* = l:full . '#L' . a:firstline . '-' . a:lastline
+endfunction
+
+vnoremap <Leader>gh :call GithubLink()<CR>
+map <Leader>gh :call GithubLink()<CR>
