@@ -133,5 +133,4 @@ function! GithubLink() range
   let @* = l:full . '#L' . a:firstline . '-' . a:lastline
 endfunction
 
-vnoremap <Leader>gh :call GithubLink()<CR>
-map <Leader>gh :call GithubLink()<CR>
+noremap <Leader>gh :call GithubLink()<CR>
