@@ -46,3 +46,6 @@
 [submodule "bundle/scrooloose-syntastic"]
 	path = bundle/scrooloose-syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/greyblake-vim-preview"]
+	path = bundle/greyblake-vim-preview
+	url = git://github.com/greyblake/vim-preview.git
