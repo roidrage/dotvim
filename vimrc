@@ -73,16 +73,6 @@ set pastetoggle=<F2>
 colorscheme github
 highlight SpellBad term=reverse ctermfg=White ctermbg=Red gui=undercurl guisp=Red
 
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
 map <leader>t :CommandT<cr>
 map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
 map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
@@ -118,6 +108,18 @@ au FileType markdown,textile setlocal spell spelllang=en_us
 
 au InsertEnter * hi StatusLine ctermbg=white ctermfg=darkred
 au InsertLeave * hi StatusLine ctermbg=white ctermfg=black
+
+" Min height and width for a window, useful for the autocmd that follows
+set winwidth=10
+set winminwidth=10
+set winheight=5
+set winminheight=5
+
+" Resize current window automatically to fill the max. available space
+" Space is set by the variables above
+au WinEnter * resize
+au WinEnter * vertical resize
+
 
 let g:rubycomplete_rails = 1
 
