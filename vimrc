@@ -79,6 +79,9 @@ map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>b :FufBuffer<cr>
 
+" Yank to clipboard
+map <leader>y "+y
+
 "
 " Get rid of awkward Ex-mode
 map Q <Esc>
