@@ -110,16 +110,19 @@ au InsertEnter * hi StatusLine ctermbg=white ctermfg=darkred
 au InsertLeave * hi StatusLine ctermbg=white ctermfg=black
 
 " Min height and width for a window, useful for the autocmd that follows
-set winwidth=10
-set winminwidth=10
+set winwidth=15
+set winminwidth=15
 set winheight=5
 set winminheight=5
 
 " Resize current window automatically to fill the max. available space
 " Space is set by the variables above
-au WinEnter * resize
-au WinEnter * vertical resize
+map <leader>f :call CenterCurrentWindow()<cr>
 
+function! CenterCurrentWindow()
+  resize
+  vertical resize
+endfunction
 
 let g:rubycomplete_rails = 1
 

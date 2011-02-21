@@ -49,3 +49,6 @@
 [submodule "bundle/greyblake-vim-preview"]
 	path = bundle/greyblake-vim-preview
 	url = git://github.com/greyblake/vim-preview.git
+[submodule "bundle/ecomba-vim-ruby-refactoring"]
+	path = bundle/ecomba-vim-ruby-refactoring
+	url = git://github.com/ecomba/vim-ruby-refactoring.git
