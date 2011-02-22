@@ -121,6 +121,7 @@ set winminheight=5
 " Resize current window automatically to fill the max. available space
 " Space is set by the variables above
 map <leader>f :call CenterCurrentWindow()<cr>
+map <leader>= <c-w>=
 
 function! CenterCurrentWindow()
   resize
