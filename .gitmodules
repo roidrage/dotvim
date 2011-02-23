@@ -52,3 +52,6 @@
 [submodule "bundle/ecomba-vim-ruby-refactoring"]
 	path = bundle/ecomba-vim-ruby-refactoring
 	url = git://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "bundle/gregsexton-vimcalc"]
+	path = bundle/gregsexton-vimcalc
+	url = git://github.com/gregsexton/VimCalc.git
