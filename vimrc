@@ -80,9 +80,11 @@ map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>b :FufBuffer<cr>
 
 " Yank to clipboard
-map <leader>y "+y
+map <leader>y "+yy
 
-"
+" jj instead of escape in insert mode
+imap jj <Esc>
+
 " Get rid of awkward Ex-mode
 map Q <Esc>
 
@@ -144,3 +146,14 @@ function! GithubLink() range
 endfunction
 
 noremap <Leader>gh :call GithubLink()<CR>
+
+function! NewScratchBuffer()
+  split
+  enew
+  resize 10
+  set buftype=nofile
+  set bufhidden=hide
+  setlocal noswapfile
+endfunction
+
+map <Leader>sb :call NewScratchBuffer()<CR>
