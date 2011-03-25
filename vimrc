@@ -71,7 +71,7 @@ set pastetoggle=<F2>
 
 " Color mappings.
 colorscheme github
-highlight SpellBad term=reverse ctermfg=White ctermbg=Red gui=undercurl guisp=Red
+highlight SpellBad term=reverse ctermbg=LightMagenta gui=undercurl guisp=Red
 
 map <leader>t :CommandT<cr>
 map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
@@ -110,6 +110,7 @@ nnoremap <CR> :nohlsearch<CR>/<BS>
 
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 au FileType markdown,textile setlocal spell spelllang=en_us
+au FileType textile set nolinebreak textwidth=0
 
 au InsertEnter * hi StatusLine ctermbg=white ctermfg=darkred
 au InsertLeave * hi StatusLine ctermbg=white ctermfg=black
