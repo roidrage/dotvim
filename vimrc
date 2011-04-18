@@ -1,5 +1,6 @@
 
 
+let maplocalleader=","
 map <Leader>m <Plug>MakeGreen
 let g:rubytest_in_quickfix = 1
 let g:erlangHighlightBif = 1
@@ -92,7 +93,11 @@ map Q <Esc>
 imap <C-l> <space>=><space>
 
 " User return key to make highlighted search results disappear
-nnoremap <CR> :nohlsearch<CR>/<BS>
+nnoremap <space> :nohlsearch<CR>/<BS>
+
+nnoremap <F5> :GundoToggle<CR>
+
+nmap <LocalLeader>ss :set spell!<CR>
 
 " Controversial...swap colon and semicolon for easier commands
 "nnoremap ; :
