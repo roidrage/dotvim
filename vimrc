@@ -6,6 +6,8 @@ let g:rubytest_in_quickfix = 1
 let g:erlangHighlightBif = 1
 let delimitMate_balance_matchpairs = 1
 let g:PreviewBrowsers='open'
+let g:erlangCompleteFile="~/.vim/bundle/jimenezrick-vimerl/autoload/erlang_complete.erl"
+let g:erlangManPath="/usr/local/brew/Cellar/erlang/R14B01/share/man"
 
 silent! call pathogen#runtime_append_all_bundles()
 
@@ -75,7 +77,7 @@ highlight SpellBad term=reverse ctermbg=LightMagenta gui=undercurl guisp=Red
 
 map <leader>t :CommandT<cr>
 map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
-map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
+"map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>b :FufBuffer<cr>
 
@@ -129,6 +131,9 @@ set winminheight=5
 " Space is set by the variables above
 map <leader>f :call CenterCurrentWindow()<cr>
 map <leader>= <c-w>=
+
+" \v to paste text from clipboard wrapped in enabling/disabling paste mode
+imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 
 function! CenterCurrentWindow()
   resize

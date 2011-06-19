@@ -7,9 +7,6 @@
 [submodule "bundle/raimondi-delimitmate"]
 	path = bundle/raimondi-delimitmate
 	url = git://github.com/Raimondi/delimitMate.git
-[submodule "bundle/oscarh-vimerl"]
-	path = bundle/oscarh-vimerl
-	url = git://github.com/oscarh/vimerl.git
 [submodule "bundle/tpope-vim-unimpaired"]
 	path = bundle/tpope-vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
@@ -61,3 +58,12 @@
 [submodule "bundle/sjl-gundo.vim"]
 	path = bundle/sjl-gundo.vim
 	url = http://github.com/sjl/gundo.vim.git
+[submodule "bundle/int3-vim-extradite"]
+	path = bundle/int3-vim-extradite
+	url = https://github.com/int3/vim-extradite.git
+[submodule "bundle/vim-rebar"]
+	path = bundle/vim-rebar
+	url = https://github.com/mbbx6spp/vim-rebar.git
+[submodule "bundle/jimenezrick-vimerl"]
+	path = bundle/jimenezrick-vimerl
+	url = https://github.com/jimenezrick/vimerl.git
