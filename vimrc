@@ -8,6 +8,7 @@ let delimitMate_balance_matchpairs = 1
 let g:PreviewBrowsers='open'
 let g:erlangCompleteFile="~/.vim/bundle/jimenezrick-vimerl/autoload/erlang_complete.erl"
 let g:erlangManPath="/usr/local/brew/Cellar/erlang/R14B01/share/man"
+let NERDTreeIgnore=['\.vim$', '\.png', '\.jpg', '\.gif', '\~$']
 
 silent! call pathogen#runtime_append_all_bundles()
 
@@ -54,6 +55,7 @@ set visualbell                    " No beeping.
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set autoread
 
 " UNCOMMENT TO USE
 set tabstop=2                    " Global tab width.
@@ -115,8 +117,12 @@ nmap <LocalLeader>ss :set spell!<CR>
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+au BufRead,BufNewFile *.py set shiftwidth=4 tabstop=4
+au BufRead,BufNewFile python map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
+au BufRead,BufNewFile *.md,*.rst set textwidth=80
 au FileType markdown,textile setlocal spell spelllang=en_us
-au FileType textile set nolinebreak textwidth=0
+au FileType markdown,textile set textwidth=80
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 au InsertEnter * hi StatusLine ctermbg=white ctermfg=darkred
 au InsertLeave * hi StatusLine ctermbg=white ctermfg=black
