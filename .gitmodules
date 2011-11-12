@@ -70,3 +70,9 @@
 [submodule "bundle/fs111-pydoc"]
 	path = bundle/fs111-pydoc
 	url = https://github.com/fs111/pydoc.vim.git
+[submodule "bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/mikewest-vimroom"]
+	path = bundle/mikewest-vimroom
+	url = https://github.com/mikewest/vimroom.git

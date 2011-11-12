@@ -70,7 +70,7 @@ set shell=/bin/bash               " Some commands seem to have problems with zsh
 
 set wildignore+=vendor,log,tmp,*.swp
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{rvmprompt#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}\ %{SyntasticStatuslineFlag()}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}\ %{SyntasticStatuslineFlag()}%=%-16(\ %l,%c-%v\ %)%P
 set pastetoggle=<F2>
 
 " Color mappings.
@@ -86,8 +86,9 @@ map <leader>b :FufBuffer<cr>
 " Yank to clipboard
 map <leader>y "+yy
 
-" jj instead of escape in insert mode
-imap jj <Esc>
+" Enable/disable 'focus' mode
+map <leader>w :set columns=100<cr>
+map <leader>W :set columns=1000<cr>
 
 " Get rid of awkward Ex-mode
 map Q <Esc>
@@ -95,7 +96,7 @@ map Q <Esc>
 " Ruby's hashrocket
 imap <C-l> <space>=><space>
 
-" User return key to make highlighted search results disappear
+" User space key to make highlighted search results disappear
 nnoremap <space> :nohlsearch<CR>/<BS>
 
 nnoremap <F5> :GundoToggle<CR>
@@ -122,6 +123,7 @@ au BufRead,BufNewFile python map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <C
 au BufRead,BufNewFile *.md,*.rst set textwidth=80
 au FileType markdown,textile setlocal spell spelllang=en_us
 au FileType markdown,textile set textwidth=80
+au FileType markdown,textile set scrolloff=999
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 au InsertEnter * hi StatusLine ctermbg=white ctermfg=darkred
