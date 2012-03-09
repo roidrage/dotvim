@@ -1,14 +1,10 @@
-
-
 let maplocalleader=","
-map <Leader>m <Plug>MakeGreen
-let g:rubytest_in_quickfix = 1
 let g:erlangHighlightBif = 1
 let delimitMate_balance_matchpairs = 1
-let g:PreviewBrowsers='open'
 let g:erlangCompleteFile="~/.vim/bundle/jimenezrick-vimerl/autoload/erlang_complete.erl"
 let g:erlangManPath="/usr/local/brew/Cellar/erlang/R14B01/share/man"
 let NERDTreeIgnore=['\.vim$', '\.png', '\.jpg', '\.gif', '\~$']
+let g:no_turbux_mappings = 1
 
 silent! call pathogen#runtime_append_all_bundles()
 
@@ -54,7 +50,7 @@ set visualbell                    " No beeping.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set directory=$HOME/.vim/tmp/     " Keep swap files in one location
 set autoread
 
 " UNCOMMENT TO USE
@@ -75,11 +71,11 @@ set pastetoggle=<F2>
 
 " Color mappings.
 colorscheme github
-highlight SpellBad term=reverse ctermbg=LightMagenta gui=undercurl guisp=Red
+highlight SpellBad term=reverse ctermbg=Yellow gui=undercurl guisp=Red
 
 map <leader>t :CommandT<cr>
-map <Leader>r <Plug>RubyTestRun " change from <Leader>t to <Leader>\
-"map <Leader>R <Plug>RubyFileRun " change from <Leader>T to <Leader>]
+map <Leader>r <Plug>SendTestToTmux 
+map <Leader>R <Plug>SendFocusedTestToTmux 
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>b :FufBuffer<cr>
 

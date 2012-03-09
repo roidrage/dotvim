@@ -28,9 +28,6 @@
 [submodule "bundle/int3-vim-extradite"]
 	path = bundle/int3-vim-extradite
 	url = https://github.com/int3/vim-extradite.git
-[submodule "bundle/vim-rebar"]
-	path = bundle/vim-rebar
-	url = https://github.com/mbbx6spp/vim-rebar.git
 [submodule "bundle/jimenezrick-vimerl"]
 	path = bundle/jimenezrick-vimerl
 	url = https://github.com/jimenezrick/vimerl.git
