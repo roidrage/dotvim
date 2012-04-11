@@ -21,8 +21,8 @@ syn match markdownLineStart "^[<@]\@!" nextgroup=@markdownBlock
 syn cluster markdownBlock contains=markdownH1,markdownH2,markdownH3,markdownH4,markdownH5,markdownH6,markdownBlockquote,markdownListMarker,markdownOrderedListMarker,markdownCodeBlock,markdownRule
 syn cluster markdownInline contains=markdownLineBreak,markdownLinkText,markdownItalic,markdownBold,markdownCode,markdownEscape,@htmlTop
 
-syn match markdownH1 ".\+\n=\+$" contained contains=@markdownInline,markdownHeadingRule
-syn match markdownH2 ".\+\n-\+$" contained contains=@markdownInline,markdownHeadingRule
+syn match markdownH1 "^.\+\n=\+$" contained contains=@markdownInline,markdownHeadingRule
+syn match markdownH2 "^.\+\n-\+$" contained contains=@markdownInline,markdownHeadingRule
 
 syn match markdownHeadingRule "^[=-]\+$" contained
 
@@ -62,10 +62,14 @@ syn region markdownItalic start="\S\@<=\*\|\*\S\@=" end="\S\@<=\*\|\*\S\@=" keep
 syn region markdownItalic start="\S\@<=_\|_\S\@=" end="\S\@<=_\|_\S\@=" keepend contains=markdownLineStart
 syn region markdownBold start="\S\@<=\*\*\|\*\*\S\@=" end="\S\@<=\*\*\|\*\*\S\@=" keepend contains=markdownLineStart
 syn region markdownBold start="\S\@<=__\|__\S\@=" end="\S\@<=__\|__\S\@=" keepend contains=markdownLineStart
-syn region markdownCode matchgroup=markdownCodeDelimiter start="`" end="`" transparent keepend contains=markdownLineStart
+syn region markdownBoldItalic start="\S\@<=\*\*\*\|\*\*\*\S\@=" end="\S\@<=\*\*\*\|\*\*\*\S\@=" keepend contains=markdownLineStart
+syn region markdownBoldItalic start="\S\@<=___\|___\S\@=" end="\S\@<=___\|___\S\@=" keepend contains=markdownLineStart
+syn region markdownCode matchgroup=markdownCodeDelimiter start="`" end="`" keepend contains=markdownLineStart
 syn region markdownCode matchgroup=markdownCodeDelimiter start="`` \=" end=" \=``" keepend contains=markdownLineStart
+syn region markdownCode matchgroup=markdownCodeDelimiter start="^\s*\zs```\s*\w*\ze\s*$" end="^```\ze\s*$" keepend
 
 syn match markdownEscape "\\[][\\`*_{}()#+.!-]"
+syn match markdownError "\w\@<=_\w\@="
 
 hi def link markdownH1                    htmlH1
 hi def link markdownH2                    htmlH2
@@ -92,9 +96,11 @@ hi def link markdownUrlTitleDelimiter     Delimiter
 
 hi def link markdownItalic                htmlItalic
 hi def link markdownBold                  htmlBold
+hi def link markdownBoldItalic            htmlBoldItalic
 hi def link markdownCodeDelimiter         Delimiter
 
 hi def link markdownEscape                Special
+hi def link markdownError                 Error
 
 let b:current_syntax = "markdown"
 

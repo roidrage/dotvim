@@ -5,7 +5,8 @@ let g:erlangCompleteFile="~/.vim/bundle/jimenezrick-vimerl/autoload/erlang_compl
 let g:erlangManPath="/usr/local/brew/Cellar/erlang/R14B01/share/man"
 let NERDTreeIgnore=['\.vim$', '\.png', '\.jpg', '\.gif', '\~$']
 let g:no_turbux_mappings = 1
-
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 silent! call pathogen#runtime_append_all_bundles()
 
 call pathogen#helptags()
@@ -73,7 +74,7 @@ set pastetoggle=<F2>
 colorscheme github
 highlight SpellBad term=reverse ctermbg=Yellow gui=undercurl guisp=Red
 
-map <leader>t :CommandT<cr>
+"map <leader>t :CommandT<cr>
 map <Leader>r <Plug>SendTestToTmux 
 map <Leader>R <Plug>SendFocusedTestToTmux 
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>

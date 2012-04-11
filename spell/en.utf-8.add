@@ -19,3 +19,4 @@ MapReduce
 pre
 nosql
 CouchDB
+Redis
