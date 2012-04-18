@@ -13,9 +13,6 @@
 [submodule "bundle/tpope-vim-rake"]
 	path = bundle/tpope-vim-rake
 	url = git://github.com/tpope/vim-rake.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "bundle/scrooloose-syntastic"]
 	path = bundle/scrooloose-syntastic
 	url = git://github.com/scrooloose/syntastic.git
